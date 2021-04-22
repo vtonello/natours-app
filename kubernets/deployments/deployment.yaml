@@ -29,7 +29,7 @@ spec:
         image: borjasprodolliet/natours-app
         imagePullPolicy: Always
         ports:
-        - containerPort: 5000
+        - containerPort: 3001
         # livenessProbe:
         #   httpGet:
         #     path: /status
