@@ -51,8 +51,7 @@ pipeline {
                 cd $WORKSPACE/natours-app
                 #get kubectl for this demo
                 curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
-                chmod +x ./kubectl
-                ./kubectl apply -f $WORKSPACE/natours-app/kubernetes/configmaps/configmap.yaml
+                chmod +x ./kubectl               
                 ./kubectl apply -f $WORKSPACE/natours-app/kubernetes/secrets/secret.yaml
                 cat $WORKSPACE/natours-app/kubernetes/deployments/deployment.yaml | sed s/1.0.0/${BUILD_NUMBER}/g | ./kubectl apply -f -
                 ./kubectl apply -f $WORKSPACE/natours-app/kubernetes/services/service.yaml
